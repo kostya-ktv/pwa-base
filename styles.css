@@ -22,6 +22,8 @@ h1 {
     color: var(--color-title);
     margin: 0;
     padding: 16px;
+       user-select: none;
+    -webkit-user-select: none;
 }
 
 
@@ -44,6 +46,7 @@ textarea {
     margin: 8px auto;
     height: 60px;
     font-size: 16px;
+    padding: 25px;
 }
 
 button {
@@ -56,6 +59,8 @@ button {
     margin: 8px 8px;
     border-radius: 3px;
     box-shadow: 1px 1px 3px #e2e2e2;
+    user-select: none;
+    -webkit-user-select: none;
 }
 button:hover {
     cursor: pointer;
@@ -74,7 +79,8 @@ button:hover {
 
 #notes li {
     margin-bottom: 16px;
-    border-top: 2px dotted var(--color-title-back);
+    
+    border: 2px dotted var(--color-title-back);
     padding-top: 8px;
 }
 
@@ -93,3 +99,11 @@ body>#toolbar {
     background-color: var(--color-toolbar);
 }
 
+@media (display-mode: standalone) {
+    body>#toolbar {
+        padding: env(safe-area-inset-top) 
+          env(safe-area-inset-right) 
+          env(safe-area-inset-bottom, 5px) 
+          env(safe-area-inset-left) !important;
+    }
+}

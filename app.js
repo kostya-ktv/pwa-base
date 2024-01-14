@@ -29,9 +29,10 @@ function renderNotes() {
         // Create the note LI
         const li = document.createElement("li");
         li.innerHTML = note;
+        
         // Delete element for each note
         const deleteButton = document.createElement("a");
-        deleteButton.innerHTML = '<span class="icon">delete</span>';
+        deleteButton.innerHTML = '<button>delete</button>';
         deleteButton.addEventListener("click", event => {
             if (confirm("Do you want to delete this note?")) {
                 notes.splice(index, 1);
