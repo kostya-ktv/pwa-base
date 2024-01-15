@@ -6,6 +6,23 @@
     "theme_color": "orange",
     "scope": "./",
     "display" : "standalone",
+    "description": "PWA base description",
+     "screenshots": [
+        {
+        "src": "icons/icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "form_factor": "wide",
+        "label": "PWA App"
+        },
+        {
+        "src": "icons/icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "form_factor": "narrow",
+        "label": "PWA App"
+        }
+    ],
     "icons": [
         {
             "src": "icons/icon-512.png",
