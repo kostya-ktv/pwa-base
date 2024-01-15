@@ -1,4 +1,4 @@
-// V3 --> important line (way to call service worker update cache)
+// V10 --> important line (way to call service worker update cache)
 
 const assets = [
     "/",

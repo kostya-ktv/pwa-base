@@ -24,6 +24,22 @@ document.addEventListener("DOMContentLoaded", event => {
     document.querySelector("#btnLearn").addEventListener("click", event => {
         location.href = "https://frontendmasters.com";
     })
+    let bipEvent = null
+
+    window.addEventListener("beforeinstallprompt", event => {
+        event.preventDefault()
+        bipEvent = event
+
+    })
+
+    document.querySelector("#btnInstall").addEventListener("click", event => {
+        if (bipEvent) {
+            bipEvent.prompt()
+        } else {
+            // incompatible browser or PWA not passing criteria
+            alert('To install app look for Add to Homescreen')
+        }
+    })
     document.querySelector("#btnShare").addEventListener("click", event => {
         let notesString = ""
         notes.forEach(el => notesString += el + ' | ')
