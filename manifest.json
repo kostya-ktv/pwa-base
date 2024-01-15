@@ -4,6 +4,7 @@
     "start_url": "./",
     "orientation": "portrait",
     "theme_color": "orange",
+    "background_color": "orange",
     "scope": "./",
     "display" : "standalone",
     "description": "PWA base description",

@@ -2,6 +2,10 @@ var notes = [];
 
 // Registering all the event handlers when the page loads
 document.addEventListener("DOMContentLoaded", event => {
+    const storedNotes = localStorage.getItem("notes")
+    if (storedNotes) {
+        notes = JSON.parse(storedNotes)
+    }
     renderNotes();
  
     document.querySelector("form").addEventListener("submit", event => {
@@ -12,12 +16,21 @@ document.addEventListener("DOMContentLoaded", event => {
         } else {
             notes.push(note);
             renderNotes();
+            save()
             document.querySelector("textarea").value = "";
         }
     });
 
     document.querySelector("#btnLearn").addEventListener("click", event => {
         location.href = "https://frontendmasters.com";
+    })
+    document.querySelector("#btnShare").addEventListener("click", event => {
+        let notesString = ""
+        notes.forEach(el => notesString += el + ' | ')
+        navigator.share({
+            title: "PWA Base",
+            text: notesString
+        })
     })
 })
 
@@ -37,9 +50,14 @@ function renderNotes() {
             if (confirm("Do you want to delete this note?")) {
                 notes.splice(index, 1);
                 renderNotes();
+                save()
             }
         });
         li.appendChild(deleteButton);
         ul.appendChild(li);
     })
+}
+
+function save() {
+    localStorage.setItem("notes", JSON.stringify(notes))
 }
