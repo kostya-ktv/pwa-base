@@ -6,6 +6,14 @@ document.addEventListener("DOMContentLoaded", event => {
     if (storedNotes) {
         notes = JSON.parse(storedNotes)
     }
+    var currentUrl = window.location.search;
+    var urlSearchParams = new URLSearchParams(currentUrl);
+    var userValue = urlSearchParams.get('user');
+    if (userValue) {
+        notes.push(userValue);
+        renderNotes();
+        save()
+    }
     renderNotes();
  
     document.querySelector("form").addEventListener("submit", event => {

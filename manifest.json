@@ -7,6 +7,16 @@
     "background_color": "orange",
     "scope": "./",
     "display" : "standalone",
+    
+    "shortcuts": [
+        {
+            "name": "Say hello",
+            "url": "/?user=tom"
+        }
+    ],
+    "launch_handler": {
+        "client_mode": ["navigate-existing"]
+    },
     "description": "PWA base description",
      "screenshots": [
         {
